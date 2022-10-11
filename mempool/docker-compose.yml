@@ -7,7 +7,7 @@ services:
       APP_PORT: $APP_MEMPOOL_PORT
       PROXY_AUTH_ADD: "false"
   web:
-    image: mempool/frontend:v2.5.0-dev1@sha256:d7bf6a5dbd9d7265fa8877ff03e926f721d520df10f01986781d4b2efbb3abd9
+    image: mempool/frontend:v2.4.0@sha256:f71722f1e3abfb3d8a3df6f2a32e384d39434e311bb83d810629077b4fa6ffaf
     user: "1000:1000"
     init: true
     restart: on-failure
@@ -20,7 +20,7 @@ services:
       default:
         ipv4_address: $APP_MEMPOOL_IP
   api:
-    image: mempool/backend:v2.5.0-dev1@sha256:eb48e839b06c975c3a4388b7b3fc13c6bb60427c06ac211c0c91c9487d5e96f9
+    image: mempool/backend:v2.4.0@sha256:6036cc6866b782efadc765e8189958940202b3fa1770eb35c35210c86efd2f47
     user: "1000:1000"
     init: true
     restart: on-failure
@@ -47,8 +47,8 @@ services:
       MEMPOOL_INDEXING_BLOCKS_AMOUNT: "52560"
       MEMPOOL_STDOUT_LOG_MIN_PRIORITY: "info"
     networks:
-      default:
-        ipv4_address: $APP_MEMPOOL_API_IP
+       default:
+         ipv4_address: $APP_MEMPOOL_API_IP
   mariadb:
     image: mariadb:10.5.12@sha256:dfcba5641bdbfd7cbf5b07eeed707e6a3672f46823695a0d3aba2e49bbd9b1dd
     user: "1000:1000"
@@ -62,5 +62,5 @@ services:
       MYSQL_PASSWORD: "mempool"
       MYSQL_ROOT_PASSWORD: "moneyprintergobrrr"
     networks:
-      default:
-        ipv4_address: $APP_MEMPOOL_DB_IP
+       default:
+         ipv4_address: $APP_MEMPOOL_DB_IP
